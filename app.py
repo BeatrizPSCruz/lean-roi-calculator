@@ -12,7 +12,7 @@ Ideal para validação de projetos **Lean Seis Sigma**.
 
 # Barra lateral para parâmetros globais
 st.sidebar.header("Parâmetros de Custo")
-custo_hh = st.sidebar.number_input("Custo da Hora Técnica (R$)", value=20, step=5.0)
+custo_hh = st.sidebar.number_input("Custo da Hora Técnica (R$)", value=20.0, step=5.0)
 
 # Entrada de dados das tarefas
 st.subheader("📋 Detalhamento de Tarefas")
@@ -21,7 +21,7 @@ if 'tarefas' not in st.session_state:
         {"Tarefa": "Automação de Emails Diários", "H_Antes": 0.5, "H_Depois": 0.083, "Freq": 22},
         {"Tarefa": "Automações de Bases | Lavador", "H_Antes": 0.15, "H_Depois": 0.01, "Freq": 22},
         {"Tarefa": "Automações de Bases | Triângulo", "H_Antes": 0.28, "H_Depois": 0.01, "Freq": 22},
-        {"Tarefa": "OnePage", "H_Antes": 1, "H_Depois": 0.083, "Freq": 22},
+        {"Tarefa": "OnePage", "H_Antes": 1, "H_Depois": 0.083, "Freq": 22}
     ]
 
 # Formulário para adicionar novas tarefas
