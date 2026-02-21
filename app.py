@@ -4,7 +4,7 @@ import pandas as pd
 # Configuração da página
 st.set_page_config(page_title="Lean ROI Calculator - Beatriz Cruz", layout="wide")
 
-st.title("🚀 Lean ROI & Automation Calculator")
+st.title("Lean ROI Calculator")
 st.markdown("""
 Esta ferramenta quantifica o impacto financeiro de automações e melhorias de processos. 
 Ideal para validação de projetos **Lean Seis Sigma**.
@@ -12,14 +12,16 @@ Ideal para validação de projetos **Lean Seis Sigma**.
 
 # Barra lateral para parâmetros globais
 st.sidebar.header("Parâmetros de Custo")
-custo_hh = st.sidebar.number_input("Custo da Hora Técnica (R$)", value=60.0, step=5.0)
+custo_hh = st.sidebar.number_input("Custo da Hora Técnica (R$)", value=20, step=5.0)
 
 # Entrada de dados das tarefas
 st.subheader("📋 Detalhamento de Tarefas")
 if 'tarefas' not in st.session_state:
     st.session_state.tarefas = [
-        {"Tarefa": "Relatório de Disponibilidade", "H_Antes": 5.0, "H_Depois": 0.5, "Freq": 22},
-        {"Tarefa": "Programação de Lavagem", "H_Antes": 2.0, "H_Depois": 0.2, "Freq": 30}
+        {"Tarefa": "Automação de Emails Diários", "H_Antes": 0.5, "H_Depois": 0.083, "Freq": 22},
+        {"Tarefa": "Automações de Bases | Lavador", "H_Antes": 0.15, "H_Depois": 0.01, "Freq": 22},
+        {"Tarefa": "Automações de Bases | Triângulo", "H_Antes": 0.28, "H_Depois": 0.01, "Freq": 22},
+        {"Tarefa": "OnePage", "H_Antes": 1, "H_Depois": 0.083, "Freq": 22},
     ]
 
 # Formulário para adicionar novas tarefas
@@ -45,5 +47,3 @@ st.dataframe(df.style.format({"Economia Mensal (R$)": "R$ {:.2f}", "Economia Anu
 # Métricas de Impacto
 total_anual = df['Economia Anual (R$)'].sum()
 st.metric("Economia Total Anual Estimada", f"R$ {total_anual:,.2f}")
-
-st.info("💡 Como Assistente de PCM, Beatriz Cruz utiliza Python para converter eficiência operacional em lucro.")
